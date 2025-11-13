@@ -20,6 +20,13 @@ def read_root():
 def hello():
     return {"message": "Hello from the backend API!"}
 
+@app.get("/api/goodbye")
+def goodbye(name: str = "friend"):
+    """Simple goodbye function that can optionally take a name.
+    Example: GET /api/goodbye?name=Alex -> {"message": "Goodbye, Alex!"}
+    """
+    return {"message": f"Goodbye, {name}!"}
+
 @app.get("/test")
 def test_database():
     """Test endpoint to check if database is available and accessible"""
